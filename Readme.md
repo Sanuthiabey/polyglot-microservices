@@ -1,18 +1,23 @@
 # Polyglot Microservices Architecture
 
-This project demonstrates a polyglot microservices architecture using multiple programming languages integrated through an API Gateway and containerized with Docker.
+This project demonstrates a polyglot microservices architecture built using multiple programming languages, integrated through a Spring Boot API Gateway and containerized using Docker.
+
+---
 
 ## 🏗 Architecture Overview
 
-The system consists of four services:
+The system consists of four independent services:
 
 - **API Gateway** – Spring Boot (Port 8080)
 - **Item Service** – Go (Port 8081)
 - **Order Service** – Python FastAPI (Port 8082)
-- **Payment Service** – Spring Boot (Port 8083)
+- **Payment Service** – Node.js (Port 8083)
 
-All services communicate through an internal Docker bridge network.
+All services communicate over an internal Docker bridge network.
 
+Architecture Flow:
+
+Browser → API Gateway → Microservices (Go / Python / Node)
 
 ---
 
@@ -21,36 +26,17 @@ All services communicate through an internal Docker bridge network.
 - Java (Spring Boot)
 - Go
 - Python (FastAPI)
+- Node.js (Express)
 - Docker & Docker Compose
 - RESTful APIs
 
 ---
 
-## ▶ How to Run
-
-1. Build all services
-2. Build Docker images
-3. Start the system
-
-
----
-
-## 🔗 API Endpoints (via Gateway)
-
-Examples:
-
-- `GET /items`
-- `GET /orders`
-- `GET /payments`
-- `POST /items`
-- `POST /orders`
-- `POST /payments/process`
-
 ---
 
 ## 📦 Dockerized Deployment
 
-Each service runs in its own container and communicates over a shared Docker bridge network.
+Each microservice runs in its own Docker container and communicates through a shared Docker bridge network defined in `docker-compose.yml`.
 
 ---
 
@@ -60,7 +46,6 @@ This project demonstrates:
 
 - Polyglot microservices architecture
 - API Gateway routing
-- Containerized deployment
-- Multi-language service integration
-
----
+- Docker-based deployment
+- Multi-language backend integration
+- Service-to-service communication
